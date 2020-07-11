@@ -1,0 +1,138 @@
+{
+  "version": 1,
+  "projects": {
+    "nuxt-plugin": {
+      "root": "packages/nuxt-plugin",
+      "sourceRoot": "packages/nuxt-plugin/src",
+      "projectType": "library",
+      "schematics": {},
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:lint",
+          "options": {
+            "linter": "eslint",
+            "tsConfig": [
+              "packages/nuxt-plugin/tsconfig.lib.json",
+              "packages/nuxt-plugin/tsconfig.spec.json"
+            ],
+            "exclude": ["**/node_modules/**", "!packages/nuxt-plugin/**/*"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "options": {
+            "jestConfig": "packages/nuxt-plugin/jest.config.js",
+            "tsConfig": "packages/nuxt-plugin/tsconfig.spec.json",
+            "passWithNoTests": true
+          }
+        },
+        "build": {
+          "builder": "@nrwl/node:package",
+          "options": {
+            "outputPath": "dist/packages/nuxt-plugin",
+            "tsConfig": "packages/nuxt-plugin/tsconfig.lib.json",
+            "packageJson": "packages/nuxt-plugin/package.json",
+            "main": "packages/nuxt-plugin/src/index.ts",
+            "assets": [
+              "packages/nuxt-plugin/*.md",
+              {
+                "input": "./packages/nuxt-plugin/src",
+                "glob": "**/*.!(ts)",
+                "output": "./src"
+              },
+              {
+                "input": "./packages/nuxt-plugin",
+                "glob": "collection.json",
+                "output": "."
+              },
+              {
+                "input": "./packages/nuxt-plugin",
+                "glob": "builders.json",
+                "output": "."
+              }
+            ]
+          }
+        }
+      }
+    },
+    "nuxt-plugin-e2e": {
+      "projectType": "application",
+      "root": "e2e/nuxt-plugin-e2e",
+      "sourceRoot": "e2e/nuxt-plugin-e2e/src",
+      "architect": {
+        "e2e": {
+          "builder": "@nrwl/nx-plugin:e2e",
+          "options": {
+            "target": "nuxt-plugin:build",
+            "npmPackageName": "@nx-nuxt-plugin/nuxt-plugin",
+            "pluginOutputPath": "dist/packages/nuxt-plugin",
+            "jestConfig": "e2e/nuxt-plugin-e2e/jest.config.js",
+            "tsSpecConfig": "e2e/nuxt-plugin-e2e/tsconfig.spec.json"
+          }
+        }
+      }
+    }
+  },
+  "cli": {
+    "defaultCollection": "@nrwl/workspace"
+  },
+  "schematics": {
+    "@nrwl/workspace": {
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/cypress": {
+      "cypress-project": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/react": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      },
+      "storybook-configuration": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/next": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/web": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/node": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nx-plugin": {
+      "plugin": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/nest": {
+      "application": {
+        "linter": "eslint"
+      }
+    },
+    "@nrwl/express": {
+      "application": {
+        "linter": "eslint"
+      },
+      "library": {
+        "linter": "eslint"
+      }
+    }
+  }
+}

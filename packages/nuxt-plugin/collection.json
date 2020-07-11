@@ -1,0 +1,12 @@
+{
+  "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
+  "name": "nuxt-plugin",
+  "version": "0.0.1",
+  "schematics": {
+    "nuxt-plugin": {
+      "factory": "./src/schematics/nuxt-plugin/schematic",
+      "schema": "./src/schematics/nuxt-plugin/schema.json",
+      "description": "nuxt-plugin schematic"
+    }
+  }
+}
