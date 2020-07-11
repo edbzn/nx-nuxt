@@ -1,12 +1,19 @@
 {
   "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
   "name": "nuxt-plugin",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "schematics": {
-    "nuxt-plugin": {
-      "factory": "./src/schematics/nuxt-plugin/schematic",
-      "schema": "./src/schematics/nuxt-plugin/schema.json",
-      "description": "nuxt-plugin schematic"
+    "init": {
+      "factory": "./src/schematics/init/init",
+      "schema": "./src/schematics/init/schema.json",
+      "description": "Initialize the Nuxt plugin",
+      "hidden": true
+    },
+    "application": {
+      "factory": "./src/schematics/application/application",
+      "schema": "./src/schematics/application/schema.json",
+      "aliases": ["app"],
+      "description": "Create a Nuxt.js application"
     }
   }
 }
