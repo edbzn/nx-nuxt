@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/schema",
-  "id": "NxNuxtNgInit",
+  "id": "NxNuxtInit",
   "title": "Add Nx Nuxt Schematics",
   "type": "object",
   "properties": {

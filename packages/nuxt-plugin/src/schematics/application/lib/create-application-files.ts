@@ -10,7 +10,6 @@ import {
 } from '@angular-devkit/schematics';
 import { names, offsetFromRoot } from '@nrwl/workspace';
 import { NormalizedSchema } from './normalize-options';
-import { createApp } from './create-application-files.helpers';
 
 export function createApplicationFiles(options: NormalizedSchema): Rule {
   return mergeWith(
@@ -20,10 +19,9 @@ export function createApplicationFiles(options: NormalizedSchema): Rule {
         ...options,
         tmpl: '',
         offsetFromRoot: offsetFromRoot(options.appProjectRoot),
-        appContent: createApp(options.name),
       }),
       options.unitTestRunner === 'none'
-        ? filter((file) => file !== `/specs/index.spec.tsx`)
+        ? filter((file) => file !== `/test/Logo.spec.js`)
         : noop(),
       move(options.appProjectRoot),
     ])
