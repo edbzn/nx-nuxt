@@ -2,6 +2,17 @@
   "name": "nx-nuxt-plugin",
   "version": "0.0.0",
   "license": "MIT",
+  "keywords": [
+    "Monorepo",
+    "Node",
+    "Nuxt",
+    "CLI"
+  ],
+  "author": "Edouard Bozon <bozonedouard@gmail.com>",
+  "bugs": {
+    "url": "https://github.com/edbzn/nx-nuxt-plugin/issues"
+  },
+  "private": false,
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
@@ -25,8 +36,10 @@
     "dep-graph": "nx dep-graph",
     "help": "nx help"
   },
-  "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@nrwl/workspace": "*",
+    "nuxt": "^2.13.3"
+  },
   "devDependencies": {
     "@nrwl/nx-plugin": "9.5.1",
     "@nrwl/workspace": "9.5.1",
