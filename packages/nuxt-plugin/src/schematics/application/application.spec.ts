@@ -44,36 +44,14 @@ describe('app', () => {
     it('should generate files', async () => {
       const tree = await runSchematic('app', { name: 'myApp' }, appTree);
       expect(tree.exists('apps/my-app/tsconfig.json')).toBeTruthy();
-      expect(tree.exists('apps/my-app/pages/index.tsx')).toBeTruthy();
-      expect(tree.exists('apps/my-app/specs/index.spec.tsx')).toBeTruthy();
+      expect(tree.exists('apps/my-app/nuxt.config.js')).toBeTruthy();
+      expect(tree.exists('apps/my-app/pages/index.vue')).toBeTruthy();
+      expect(tree.exists('apps/my-app/layouts/default.vue')).toBeTruthy();
+      expect(tree.exists('apps/my-app/test/Logo.spec.js')).toBeTruthy();
     });
   });
 
-  describe('--style scss', () => {
-    it('should generate scss styles', async () => {
-      const result = await runSchematic(
-        'app',
-        { name: 'myApp', style: 'scss' },
-        appTree
-      );
-      expect(result.exists('apps/my-app/pages/index.scss')).toEqual(true);
-    });
-  });
-
-  describe('--style styled-jsx', () => {
-    it('should use <style jsx> in index page', async () => {
-      const result = await runSchematic(
-        'app',
-        { name: 'myApp', style: 'styled-jsx' },
-        appTree
-      );
-
-      const content = result.read('apps/my-app/pages/index.tsx').toString();
-      expect(content).toMatch(/<style jsx>/);
-    });
-  });
-
-  it('should setup jest with tsx support', async () => {
+  it('should setup jest with ts support', async () => {
     const tree = await runSchematic(
       'app',
       {
@@ -83,21 +61,10 @@ describe('app', () => {
     );
 
     expect(tree.readContent('apps/my-app/jest.config.js')).toContain(
-      `moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],`
+      `moduleFileExtensions: ['ts', 'js', 'vue', 'json'],`
     );
-  });
-
-  it('should setup jest with SVGR support', async () => {
-    const tree = await runSchematic(
-      'app',
-      {
-        name: 'my-app',
-      },
-      appTree
-    );
-
     expect(tree.readContent('apps/my-app/jest.config.js')).toContain(
-      `'^(?!.*\\\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest'`
+      `'^.+.ts$': 'ts-jest',`
     );
   });
 
@@ -176,37 +143,6 @@ describe('app', () => {
       expect(tree.exists('apps/my-app-e2e')).toBeFalsy();
       const workspaceJson = readJsonInTree(tree, 'workspace.json');
       expect(workspaceJson.projects['my-app-e2e']).toBeUndefined();
-    });
-  });
-
-  it('should generate functional components by default', async () => {
-    const tree = await runSchematic('app', { name: 'myApp' }, appTree);
-
-    const appContent = tree.read('apps/my-app/pages/index.tsx').toString();
-
-    expect(appContent).not.toMatch(/extends Component/);
-  });
-
-  describe('--linter=eslint', () => {
-    it('should add .eslintrc and dependencies', async () => {
-      const tree = await runSchematic(
-        'app',
-        { name: 'myApp', linter: 'eslint' },
-        appTree
-      );
-
-      const eslintJson = readJsonInTree(tree, '/apps/my-app/.eslintrc');
-      const packageJson = readJsonInTree(tree, '/package.json');
-
-      expect(eslintJson.plugins).toEqual(
-        expect.arrayContaining(['react', 'react-hooks'])
-      );
-      expect(packageJson).toMatchObject({
-        devDependencies: {
-          'eslint-plugin-react': expect.anything(),
-          'eslint-plugin-react-hooks': expect.anything(),
-        },
-      });
     });
   });
 });

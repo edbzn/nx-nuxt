@@ -9,7 +9,6 @@ import { normalizeOptions } from './lib/normalize-options';
 import { setDefaults } from './lib/set-defaults';
 import { updateJestConfig } from './lib/update-jest-config';
 import { updateNxJson } from './lib/update-nx-json';
-import { updateTsConfig } from './lib/update-ts-config';
 import { Schema } from './schema';
 
 export default function (schema: Schema): Rule {
@@ -28,7 +27,6 @@ export default function (schema: Schema): Rule {
       addCypress(options),
       addJest(options),
       updateJestConfig(options),
-      updateTsConfig(options),
       setDefaults(options),
       formatFiles(options),
     ]);

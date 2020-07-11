@@ -13,11 +13,6 @@ export function addProject(options: NormalizedSchema): Rule {
         root: options.appProjectRoot,
         outputPath: join(normalize('dist'), options.appProjectRoot),
       },
-      // This has to be here so `nx serve [app] --prod` will work. Otherwise
-      // a missing configuration error will be thrown.
-      configurations: {
-        production: {},
-      },
     };
 
     architect.serve = {

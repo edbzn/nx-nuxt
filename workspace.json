@@ -98,11 +98,6 @@
         "linter": "eslint"
       }
     },
-    "@nrwl/next": {
-      "application": {
-        "linter": "eslint"
-      }
-    },
     "@nrwl/web": {
       "application": {
         "linter": "eslint"
