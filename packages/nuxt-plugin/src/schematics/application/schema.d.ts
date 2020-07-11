@@ -1,6 +1,5 @@
 export interface Schema {
   name: string;
-  server?: string;
   skipFormat: boolean;
   directory?: string;
   tags?: string;

@@ -6,11 +6,31 @@ export function updateJestConfig(options: NormalizedSchema): Rule {
     ? noop()
     : (host) => {
         const configPath = `${options.appProjectRoot}/jest.config.js`;
-        const originalContent = host.read(configPath).toString();
-        const content = originalContent.replace(
-          'transform: {',
-          "transform: {\n    '^(?!.*\\\\.(js|jsx|ts|tsx|css|json)$)': '@nrwl/react/plugins/jest',"
-        );
+        const content = `
+          module.exports = {
+            moduleNameMapper: {
+              '^@/(.*)$': '<rootDir>/$1',
+              '^~/(.*)$': '<rootDir>/$1',
+              '^vue$': 'vue/dist/vue.common.js'
+            },
+            moduleFileExtensions: [
+              'ts',
+              'js',
+              'vue',
+              'json'
+            ],
+            transform: {
+              "^.+\\.ts$": "ts-jest",
+              '^.+\\.js$': 'babel-jest',
+              '.*\\.(vue)$': 'vue-jest'
+            },
+            collectCoverage: true,
+            collectCoverageFrom: [
+              '<rootDir>/components/**/*.vue',
+              '<rootDir>/pages/**/*.vue'
+            ]
+          }`;
+
         host.overwrite(configPath, content);
       };
 }

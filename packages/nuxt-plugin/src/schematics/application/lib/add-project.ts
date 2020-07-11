@@ -7,8 +7,6 @@ import { NormalizedSchema } from './normalize-options';
 export function addProject(options: NormalizedSchema): Rule {
   return updateWorkspaceInTree((json) => {
     const architect: { [key: string]: any } = {};
-    const { server } = options;
-
     architect.build = {
       builder: 'nx-nuxt-plugin:build',
       options: {
@@ -35,13 +33,6 @@ export function addProject(options: NormalizedSchema): Rule {
         },
       },
     };
-
-    if (server) {
-      architect.serve.options = {
-        ...architect.serve.options,
-        customServerPath: options.server,
-      };
-    }
 
     architect.export = {
       builder: 'nx-nuxt-plugin:export',
