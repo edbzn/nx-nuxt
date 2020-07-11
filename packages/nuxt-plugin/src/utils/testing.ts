@@ -15,12 +15,12 @@ const testRunner = new SchematicTestRunner(
 
 testRunner.registerCollection(
   '@nrwl/jest',
-  join(__dirname, '../../../jest/collection.json')
+  join(__dirname, '../../../../node_modules/@nrwl/jest/collection.json')
 );
 
 testRunner.registerCollection(
   '@nrwl/cypress',
-  join(__dirname, '../../../cypress/collection.json')
+  join(__dirname, '../../../../node_modules/@nrwl/cypress/collection.json')
 );
 
 export function runSchematic(schematicName: string, options: any, tree: Tree) {

@@ -11,7 +11,7 @@ describe('init', () => {
     tree = createEmptyWorkspace(tree);
   });
 
-  it('should add react dependencies', async () => {
+  it('should add Nuxt dependencies', async () => {
     const result = await runSchematic('init', {}, tree);
     const packageJson = readJsonInTree(result, 'package.json');
     expect(packageJson.dependencies['nx-nuxt-plugin']).toBeUndefined();
