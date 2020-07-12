@@ -6,11 +6,11 @@ import {
   uniq,
 } from '@nrwl/nx-plugin/testing';
 describe('nuxt-plugin e2e', () => {
-  it('should create nuxt-plugin', async (done) => {
+  fit('should create nuxt-plugin', async (done) => {
     const plugin = uniq('nuxt-plugin');
     ensureNxProject('@nx-nuxt-plugin/nuxt-plugin', 'dist/packages/nuxt-plugin');
     await runNxCommandAsync(
-      `generate @nx-nuxt-plugin/nuxt-plugin:nuxtPlugin ${plugin}`
+      `generate @nx-nuxt-plugin/nuxt-plugin:app ${plugin}`
     );
 
     const result = await runNxCommandAsync(`build ${plugin}`);

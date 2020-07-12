@@ -24,16 +24,11 @@
       "type": "string",
       "alias": "d"
     },
-    "server": {
-      "description": "The server script path to be used with Nuxt.",
-      "type": "string",
-      "default": null
-    },
     "linter": {
       "description": "The tool to use for running lint checks.",
       "type": "string",
-      "enum": ["eslint", "tslint"],
-      "default": "tslint"
+      "enum": ["eslint", "none"],
+      "default": "eslint"
     },
     "skipFormat": {
       "description": "Skip formatting files",

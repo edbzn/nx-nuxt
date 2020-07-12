@@ -9,7 +9,7 @@ import { MockBuilderContext } from '@nrwl/workspace/testing';
 import { join } from 'path';
 
 const testRunner = new SchematicTestRunner(
-  'nx-nuxt-plugin',
+  '@nx-nuxt-plugin',
   join(__dirname, '../../collection.json')
 );
 

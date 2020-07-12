@@ -37,7 +37,6 @@
     "help": "nx help"
   },
   "dependencies": {
-    "@nrwl/workspace": "*",
     "nuxt": "^2.13.3"
   },
   "devDependencies": {
@@ -45,7 +44,7 @@
     "@nrwl/eslint-plugin-nx": "9.5.1",
     "@nrwl/jest": "9.5.1",
     "@nrwl/nx-plugin": "9.5.1",
-    "@nrwl/web": "^9.5.1",
+    "@nrwl/web": "9.5.1",
     "@nrwl/workspace": "9.5.1",
     "@types/jest": "25.1.4",
     "@types/node": "~8.9.4",

@@ -1417,7 +1417,7 @@
     minimist "^1.2.0"
     strip-json-comments "2.0.1"
 
-"@nrwl/web@^9.5.1":
+"@nrwl/web@9.5.1":
   version "9.5.1"
   resolved "https://registry.yarnpkg.com/@nrwl/web/-/web-9.5.1.tgz#14f8079194fed38131ce708fe79c3fd9735ea688"
   integrity sha512-8wtIcgnjJUS1b3ZmYkEFbbouBOiaFvC13FDzkva5G+24I6DkMvL18s5qCtR1xReaMx8T4W0MlMjS/EdiUA3BQg==
