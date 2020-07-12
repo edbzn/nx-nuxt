@@ -8,7 +8,7 @@ export function addProject(options: NormalizedSchema): Rule {
   return updateWorkspaceInTree((json) => {
     const architect: { [key: string]: any } = {};
     architect.build = {
-      builder: 'nx-nuxt-plugin:build',
+      builder: '@vue:build',
       options: {
         root: options.appProjectRoot,
         outputPath: join(normalize('dist'), options.appProjectRoot),
@@ -16,7 +16,7 @@ export function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.serve = {
-      builder: 'nx-nuxt-plugin:server',
+      builder: '@vue:server',
       options: {
         buildTarget: `${options.projectName}:build`,
         dev: true,
@@ -30,7 +30,7 @@ export function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.export = {
-      builder: 'nx-nuxt-plugin:export',
+      builder: '@vue:export',
       options: {
         buildTarget: `${options.projectName}:build:production`,
       },

@@ -1,5 +1,5 @@
 {
-  "npmScope": "nx-nuxt-plugin",
+  "npmScope": "@vue",
   "affected": {
     "defaultBase": "master"
   },
@@ -22,12 +22,12 @@
     }
   },
   "projects": {
-    "nuxt-plugin": {
+    "nuxt": {
       "tags": []
     },
-    "nuxt-plugin-e2e": {
+    "nuxt-e2e": {
       "tags": [],
-      "implicitDependencies": ["nuxt-plugin"]
+      "implicitDependencies": ["nuxt"]
     }
   },
   "workspaceLayout": {

@@ -78,7 +78,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.build.builder).toEqual('nx-nuxt-plugin:build');
+    expect(architectConfig.build.builder).toEqual('@vue:build');
     expect(architectConfig.build.options).toEqual({
       root: 'apps/my-app',
       outputPath: 'dist/apps/my-app',
@@ -95,7 +95,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.serve.builder).toEqual('nx-nuxt-plugin:server');
+    expect(architectConfig.serve.builder).toEqual('@vue:server');
     expect(architectConfig.serve.options).toEqual({
       buildTarget: 'my-app:build',
       dev: true,
@@ -115,7 +115,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.export.builder).toEqual('nx-nuxt-plugin:export');
+    expect(architectConfig.export.builder).toEqual('@vue:export');
     expect(architectConfig.export.options).toEqual({
       buildTarget: 'my-app:build:production',
     });

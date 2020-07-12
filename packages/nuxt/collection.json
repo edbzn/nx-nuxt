@@ -1,6 +1,6 @@
 {
   "$schema": "../../node_modules/@angular-devkit/schematics/collection-schema.json",
-  "name": "nuxt-plugin",
+  "name": "nuxt",
   "version": "0.0.0",
   "schematics": {
     "init": {

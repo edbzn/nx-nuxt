@@ -1,9 +1,9 @@
 {
   "version": 1,
   "projects": {
-    "nuxt-plugin": {
-      "root": "packages/nuxt-plugin",
-      "sourceRoot": "packages/nuxt-plugin/src",
+    "nuxt": {
+      "root": "packages/nuxt",
+      "sourceRoot": "packages/nuxt/src",
       "projectType": "library",
       "schematics": {},
       "architect": {
@@ -12,41 +12,41 @@
           "options": {
             "linter": "eslint",
             "tsConfig": [
-              "packages/nuxt-plugin/tsconfig.lib.json",
-              "packages/nuxt-plugin/tsconfig.spec.json"
+              "packages/nuxt/tsconfig.lib.json",
+              "packages/nuxt/tsconfig.spec.json"
             ],
-            "exclude": ["**/node_modules/**", "!packages/nuxt-plugin/**/*"]
+            "exclude": ["**/node_modules/**", "!packages/nuxt/**/*"]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
-            "jestConfig": "packages/nuxt-plugin/jest.config.js",
-            "tsConfig": "packages/nuxt-plugin/tsconfig.spec.json",
+            "jestConfig": "packages/nuxt/jest.config.js",
+            "tsConfig": "packages/nuxt/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
         "build": {
           "builder": "@nrwl/node:package",
           "options": {
-            "outputPath": "dist/packages/nuxt-plugin",
-            "tsConfig": "packages/nuxt-plugin/tsconfig.lib.json",
-            "packageJson": "packages/nuxt-plugin/package.json",
-            "main": "packages/nuxt-plugin/src/index.ts",
+            "outputPath": "dist/packages/nuxt",
+            "tsConfig": "packages/nuxt/tsconfig.lib.json",
+            "packageJson": "packages/nuxt/package.json",
+            "main": "packages/nuxt/src/index.ts",
             "assets": [
-              "packages/nuxt-plugin/*.md",
+              "packages/nuxt/*.md",
               {
-                "input": "./packages/nuxt-plugin/src",
+                "input": "./packages/nuxt/src",
                 "glob": "**/*.!(ts)",
                 "output": "./src"
               },
               {
-                "input": "./packages/nuxt-plugin",
+                "input": "./packages/nuxt",
                 "glob": "collection.json",
                 "output": "."
               },
               {
-                "input": "./packages/nuxt-plugin",
+                "input": "./packages/nuxt",
                 "glob": "builders.json",
                 "output": "."
               }
@@ -55,19 +55,19 @@
         }
       }
     },
-    "nuxt-plugin-e2e": {
+    "nuxt-e2e": {
       "projectType": "application",
-      "root": "e2e/nuxt-plugin-e2e",
-      "sourceRoot": "e2e/nuxt-plugin-e2e/src",
+      "root": "e2e/nuxt-e2e",
+      "sourceRoot": "e2e/nuxt-e2e/src",
       "architect": {
         "e2e": {
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
-            "target": "nuxt-plugin:build",
-            "npmPackageName": "@nx-nuxt-plugin/nuxt-plugin",
-            "pluginOutputPath": "dist/packages/nuxt-plugin",
-            "jestConfig": "e2e/nuxt-plugin-e2e/jest.config.js",
-            "tsSpecConfig": "e2e/nuxt-plugin-e2e/tsconfig.spec.json"
+            "target": "nuxt:build",
+            "npmPackageName": "@vue/nuxt",
+            "pluginOutputPath": "dist/packages/nuxt",
+            "jestConfig": "e2e/nuxt-e2e/jest.config.js",
+            "tsSpecConfig": "e2e/nuxt-e2e/tsconfig.spec.json"
           }
         }
       }

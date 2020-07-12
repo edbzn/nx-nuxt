@@ -1,5 +1,5 @@
 {
-  "name": "nx-nuxt-plugin",
+  "name": "vue",
   "version": "0.0.0",
   "license": "MIT",
   "keywords": [
@@ -10,14 +10,14 @@
   ],
   "author": "Edouard Bozon <bozonedouard@gmail.com>",
   "bugs": {
-    "url": "https://github.com/edbzn/nx-nuxt-plugin/issues"
+    "url": "https://github.com/edbzn/@vue/issues"
   },
   "private": false,
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
     "build": "nx build",
-    "test": "nx test nuxt-plugin --watch",
+    "test": "nx test nuxt --watch",
     "lint": "nx workspace-lint && nx lint",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",

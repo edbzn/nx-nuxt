@@ -5,13 +5,11 @@ import {
   runNxCommandAsync,
   uniq,
 } from '@nrwl/nx-plugin/testing';
-describe('nuxt-plugin e2e', () => {
-  fit('should create nuxt-plugin', async (done) => {
-    const plugin = uniq('nuxt-plugin');
-    ensureNxProject('@nx-nuxt-plugin/nuxt-plugin', 'dist/packages/nuxt-plugin');
-    await runNxCommandAsync(
-      `generate @nx-nuxt-plugin/nuxt-plugin:app ${plugin}`
-    );
+describe('nuxt e2e', () => {
+  fit('should create nuxt', async (done) => {
+    const plugin = uniq('nuxt');
+    ensureNxProject('@vue/nuxt', 'dist/packages/nuxt');
+    await runNxCommandAsync(`generate @vue/nuxt:app ${plugin}`);
 
     const result = await runNxCommandAsync(`build ${plugin}`);
     expect(result.stdout).toContain('Builder ran');
@@ -21,13 +19,10 @@ describe('nuxt-plugin e2e', () => {
 
   describe('--directory', () => {
     it('should create src in the specified directory', async (done) => {
-      const plugin = uniq('nuxt-plugin');
-      ensureNxProject(
-        '@nx-nuxt-plugin/nuxt-plugin',
-        'dist/packages/nuxt-plugin'
-      );
+      const plugin = uniq('nuxt');
+      ensureNxProject('@vue/nuxt', 'dist/packages/nuxt');
       await runNxCommandAsync(
-        `generate @nx-nuxt-plugin/nuxt-plugin:nuxtPlugin ${plugin} --directory subdir`
+        `generate @vue/nuxt:nuxtPlugin ${plugin} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${plugin}/src/index.ts`)
@@ -38,13 +33,10 @@ describe('nuxt-plugin e2e', () => {
 
   describe('--tags', () => {
     it('should add tags to nx.json', async (done) => {
-      const plugin = uniq('nuxt-plugin');
-      ensureNxProject(
-        '@nx-nuxt-plugin/nuxt-plugin',
-        'dist/packages/nuxt-plugin'
-      );
+      const plugin = uniq('nuxt');
+      ensureNxProject('@vue/nuxt', 'dist/packages/nuxt');
       await runNxCommandAsync(
-        `generate @nx-nuxt-plugin/nuxt-plugin:nuxtPlugin ${plugin} --tags e2etag,e2ePackage`
+        `generate @vue/nuxt:nuxtPlugin ${plugin} --tags e2etag,e2ePackage`
       );
       const nxJson = readJson('nx.json');
       expect(nxJson.projects[plugin].tags).toEqual(['e2etag', 'e2ePackage']);

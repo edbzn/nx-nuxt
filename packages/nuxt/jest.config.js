@@ -1,9 +1,9 @@
 module.exports = {
-  name: 'nuxt-plugin',
+  name: 'nuxt',
   preset: '../../jest.config.js',
   transform: {
     '^.+\\.[tj]sx?$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'html'],
-  coverageDirectory: '../../coverage/packages/nuxt-plugin',
+  coverageDirectory: '../../coverage/packages/nuxt',
 };
