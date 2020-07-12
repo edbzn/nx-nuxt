@@ -19,6 +19,7 @@
     "build": "nx build",
     "test": "nx test nuxt --watch",
     "lint": "nx workspace-lint && nx lint",
+    "link": "nx run nuxt:build && cd ./dist/packages/nuxt && yarn unlink && yarn link",
     "e2e": "nx e2e",
     "affected:apps": "nx affected:apps",
     "affected:libs": "nx affected:libs",
