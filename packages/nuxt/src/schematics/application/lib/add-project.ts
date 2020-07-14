@@ -16,23 +16,15 @@ export function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.serve = {
-      builder: '@vue/nuxt:server',
+      builder: '@vue/nuxt:serve',
       options: {
-        buildTarget: `${options.projectName}:build`,
-        dev: true,
+        root: options.appProjectRoot,
       },
       configurations: {
         production: {
           buildTarget: `${options.projectName}:build:production`,
           dev: false,
         },
-      },
-    };
-
-    architect.export = {
-      builder: '@vue/nuxt:export',
-      options: {
-        buildTarget: `${options.projectName}:build:production`,
       },
     };
 

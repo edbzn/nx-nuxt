@@ -31,6 +31,7 @@ export default function (schema: Schema): Rule {
         jest: '^26.0.1',
         'ts-jest': '^26.1.0',
         'vue-jest': '^3.0.4',
+        'vue-loader': '^15.9.3',
       }
     ),
   ]);
