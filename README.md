@@ -5,9 +5,13 @@
 ## Install
 
 ```bash
-yarn add @vue/nuxt -D
+# @todo
 ```
 
+## Usage
+
 ```bash
-yarn nx generate nuxt app
+nx generate @vue/nuxt:app <my-app> # Generate
+nx serve <my-app> # Serve
+nx build <my-app> # Build
 ```
