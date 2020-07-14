@@ -20,12 +20,6 @@ export function addProject(options: NormalizedSchema): Rule {
       options: {
         root: options.appProjectRoot,
       },
-      configurations: {
-        production: {
-          buildTarget: `${options.projectName}:build:production`,
-          dev: false,
-        },
-      },
     };
 
     architect.lint = generateProjectLint(

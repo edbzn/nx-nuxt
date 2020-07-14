@@ -17,5 +17,4 @@
     },
     "types": ["@types/node", "@nuxt/types"]
   },
-  "exclude": ["node_modules", ".nuxt", "dist"]
 }

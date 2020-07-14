@@ -1,20 +1,8 @@
-# Nx Nuxt.js
+# Nuxt.js
 
 ## Build Setup
 
 ```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
+nx serve <my-app> # Serve
+nx build <my-app> # Build
 ```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
