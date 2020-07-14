@@ -1,26 +1,18 @@
-import {
-  BuilderContext,
-  BuilderOutput,
-  createBuilder,
-} from '@angular-devkit/architect';
-import { Observable, defer } from 'rxjs';
+import { BuilderOutput, createBuilder } from '@angular-devkit/architect';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
 import { BuildBuilderSchema } from './schema';
-import { loadNuxt, build } from 'nuxt';
+import { loadNuxt } from '../../utils/load-nuxt';
 
 export function runBuilder(
-  options: BuildBuilderSchema,
-  context: BuilderContext
+  options: BuildBuilderSchema
 ): Observable<BuilderOutput> {
-  return defer(async () => {
-    try {
-      const nuxt = await loadNuxt({ for: 'build' });
-      await build(nuxt);
-      context.logger.info('Builder ran for build');
-      return { success: true };
-    } catch (error) {
-      console.error(error);
-    }
-  });
+  return from(
+    loadNuxt({
+      for: 'build',
+      projectRoot: options.root,
+    })
+  ).pipe(map(() => ({ success: true })));
 }
 
 export default createBuilder(runBuilder);

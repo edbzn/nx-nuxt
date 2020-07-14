@@ -8,7 +8,7 @@ import { createApplicationFiles } from './lib/create-application-files';
 import { normalizeOptions } from './lib/normalize-options';
 import { setDefaults } from './lib/set-defaults';
 import { updateJestConfig } from './lib/update-jest-config';
-import { updateNxJson } from './lib/update-nx-json';
+import { updateNxJson, updateBabel } from './lib/update-nx-json';
 import { Schema } from './schema';
 
 export default function (schema: Schema): Rule {
@@ -23,6 +23,7 @@ export default function (schema: Schema): Rule {
       addLintFiles(options.appProjectRoot, options.linter),
       createApplicationFiles(options),
       updateNxJson(options),
+      updateBabel(options),
       addProject(options),
       addCypress(options),
       addJest(options),

@@ -4,6 +4,11 @@
   "title": "Build builder",
   "description": "",
   "type": "object",
-  "properties": {},
+  "properties": {
+    "root": {
+      "description": "The source root",
+      "type": "string"
+    }
+  },
   "required": []
 }

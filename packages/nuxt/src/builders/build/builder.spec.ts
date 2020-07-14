@@ -4,7 +4,9 @@ import { schema } from '@angular-devkit/core';
 import { join } from 'path';
 import { BuildBuilderSchema } from './schema';
 
-const options: BuildBuilderSchema = {};
+const options: BuildBuilderSchema = {
+  root: '',
+};
 
 describe('Command Runner Builder', () => {
   let architect: Architect;

@@ -8,3 +8,24 @@ export function updateNxJson(options: NormalizedSchema): Rule {
     return json;
   });
 }
+
+export function updateBabel(options: NormalizedSchema): Rule {
+  return updateJsonInTree<any>('.babelrc', (json) => {
+    return {
+      env: {
+        test: {
+          presets: [
+            [
+              '@babel/preset-env',
+              {
+                targets: {
+                  node: 'current',
+                },
+              },
+            ],
+          ],
+        },
+      },
+    };
+  });
+}

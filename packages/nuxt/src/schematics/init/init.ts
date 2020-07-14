@@ -8,7 +8,7 @@ import { Schema } from './schema';
 
 export default function (schema: Schema): Rule {
   return chain([
-    setDefaultCollection('@vue'),
+    setDefaultCollection('@vue/nuxt'),
     schema.unitTestRunner === 'jest'
       ? addPackageWithInit('@nrwl/jest')
       : noop(),
@@ -19,9 +19,11 @@ export default function (schema: Schema): Rule {
     addDepsToPackageJson(
       {
         nuxt: '^2.13.0',
-        '@nuxt/typescript-runtime': '^0.4.10',
+        '@nuxt/typescript-runtime': '^1.0.0',
+        'core-js': '^3.6.5',
       },
       {
+        '@nuxt/babel-preset-app': '^2.13.3',
         '@nuxt/typescript-build': '^1.0.3',
         '@vue/test-utils': '^1.0.3',
         'babel-core': '7.0.0-bridge.0',
