@@ -27,7 +27,6 @@ export default function (schema: Schema): Rule {
         '@nuxt/typescript-build': '^1.0.3',
         '@vue/test-utils': '^1.0.3',
         'babel-core': '7.0.0-bridge.0',
-        'babel-jest': '^26.0.1',
         jest: '^26.0.1',
         'ts-jest': '^26.1.0',
         'vue-jest': '^3.0.4',
