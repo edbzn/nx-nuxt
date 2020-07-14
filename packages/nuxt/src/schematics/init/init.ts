@@ -9,6 +9,7 @@ import { Schema } from './schema';
 export default function (schema: Schema): Rule {
   return chain([
     setDefaultCollection('@vue/nuxt'),
+    addPackageWithInit('@nrwl/web'),
     schema.unitTestRunner === 'jest'
       ? addPackageWithInit('@nrwl/jest')
       : noop(),
