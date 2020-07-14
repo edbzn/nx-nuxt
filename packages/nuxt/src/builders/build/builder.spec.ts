@@ -6,6 +6,7 @@ import { BuildBuilderSchema } from './schema';
 
 const options: BuildBuilderSchema = {
   root: '',
+  outputPath: 'dist',
 };
 
 describe('Command Runner Builder', () => {

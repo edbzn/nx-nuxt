@@ -16,6 +16,7 @@ export function runBuilder(
   return from(
     loadNuxt({
       for: 'build',
+      outputPath: resolve(context.workspaceRoot, options.outputPath),
       projectRoot: resolve(context.workspaceRoot, options.root),
     })
   ).pipe(map(() => ({ success: true })));
