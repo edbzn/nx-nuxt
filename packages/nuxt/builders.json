@@ -5,6 +5,11 @@
       "implementation": "./src/builders/build/builder",
       "schema": "./src/builders/build/schema.json",
       "description": "Build a Nuxt.js app"
+    },
+    "serve": {
+      "implementation": "./src/builders/server/server",
+      "schema": "./src/builders/server/schema.json",
+      "description": "Serve a Nuxt.js app"
     }
   }
 }

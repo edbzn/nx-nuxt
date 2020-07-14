@@ -5,6 +5,9 @@ export interface NuxtOptions {
   projectRoot: string;
 }
 
+/**
+ * @todo: bind outputPath
+ */
 export async function loadNuxt(options: NuxtOptions) {
   const nuxtApp = await load({
     for: options.for,
@@ -15,4 +18,8 @@ export async function loadNuxt(options: NuxtOptions) {
   });
 
   await build(nuxtApp);
+
+  if (options.for === 'dev') {
+    await nuxtApp.listen(3000);
+  }
 }
