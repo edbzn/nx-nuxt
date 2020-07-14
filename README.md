@@ -1,17 +1,21 @@
-# Nuxt plugin
+# @vue/nuxt
 
-:construction: Work in progress.
+> A Nuxt.js plugin for Nx workspaces.
 
 ## Install
 
 ```bash
-# @todo
+yarn add @edbzn/nuxt -D
+```
+
+```bash
+nx generate @vue/nuxt:app <my-app>
 ```
 
 ## Usage
 
 ```bash
-nx generate @vue/nuxt:app <my-app> # Generate
-nx serve <my-app> # Serve
-nx build <my-app> # Build
+nx serve <my-app>
+nx build <my-app>
+nx test <my-app>
 ```

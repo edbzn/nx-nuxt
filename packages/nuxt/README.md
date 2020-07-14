@@ -1,7 +1,21 @@
-# nuxt
+# @vue/nuxt
 
-This library was generated with [Nx](https://nx.dev).
+> A Nuxt.js plugin for Nx workspaces.
 
-## Running unit tests
+## Install
 
-Run `ng test nuxt` to execute the unit tests via [Jest](https://jestjs.io).
+```bash
+yarn add @edbzn/nuxt -D
+```
+
+```bash
+nx generate @vue/nuxt:app <my-app>
+```
+
+## Usage
+
+```bash
+nx serve <my-app>
+nx build <my-app>
+nx test <my-app>
+```

@@ -3,6 +3,7 @@
 ## Build Setup
 
 ```bash
-nx serve <my-app> # Serve
-nx build <my-app> # Build
+nx serve <my-app>
+nx build <my-app>
+nx test <my-app>
 ```

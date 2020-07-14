@@ -9,10 +9,11 @@
     "CLI"
   ],
   "author": "Edouard Bozon <bozonedouard@gmail.com>",
+  "repository": "git@github.com:edbzn/vue.git",
   "bugs": {
     "url": "https://github.com/edbzn/@vue/issues"
   },
-  "private": false,
+  "private": true,
   "scripts": {
     "nx": "nx",
     "start": "nx serve",
