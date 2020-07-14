@@ -8,6 +8,10 @@
     "root": {
       "description": "The source root",
       "type": "string"
+    },
+    "outputPath": {
+      "description": "The distribution out directory",
+      "type": "string"
     }
   },
   "required": []

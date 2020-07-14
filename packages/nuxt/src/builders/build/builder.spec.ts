@@ -3,11 +3,21 @@ import { TestingArchitectHost } from '@angular-devkit/architect/testing';
 import { schema } from '@angular-devkit/core';
 import { join } from 'path';
 import { BuildBuilderSchema } from './schema';
+import { build, loadNuxt } from 'nuxt';
 
 const options: BuildBuilderSchema = {
   root: '',
   outputPath: 'dist',
 };
+
+const nuxtMock = {
+  listen: jest.fn(),
+};
+
+jest.mock('nuxt', () => ({
+  build: jest.fn(() => Promise.resolve()),
+  loadNuxt: jest.fn(() => Promise.resolve(nuxtMock)),
+}));
 
 describe('Command Runner Builder', () => {
   let architect: Architect;
@@ -20,23 +30,24 @@ describe('Command Runner Builder', () => {
     architectHost = new TestingArchitectHost('/root', '/root');
     architect = new Architect(architectHost, registry);
 
-    // This will either take a Node package name, or a path to the directory
-    // for the package.json file.
     await architectHost.addBuilderFromPackage(join(__dirname, '../../..'));
   });
 
   it('can run', async () => {
-    // A "run" can have multiple outputs, and contains progress information.
     const run = await architect.scheduleBuilder('@vue/nuxt:build', options);
-    // The "result" member (of type BuilderOutput) is the next output.
     const output = await run.result;
 
-    // Stop the builder from running. This stops Architect from keeping
-    // the builder-associated states in memory, since builders keep waiting
-    // to be scheduled.
     await run.stop();
 
-    // Expect that it succeeded.
+    expect(loadNuxt).toBeCalledWith({
+      for: 'build',
+      rootDir: '/root',
+      configOverrides: {
+        buildDir: '/root/dist',
+        modulesDir: ['../../node_modules'],
+      },
+    });
+    expect(build).toBeCalled();
     expect(output.success).toBe(true);
   });
 });
