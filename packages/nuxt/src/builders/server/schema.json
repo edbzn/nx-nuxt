@@ -8,6 +8,11 @@
     "root": {
       "description": "The source root",
       "type": "string"
+    },
+    "port": {
+      "description": "The source root",
+      "type": "number",
+      "default": 3000
     }
   },
   "required": []

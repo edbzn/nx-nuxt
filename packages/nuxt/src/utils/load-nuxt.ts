@@ -4,6 +4,7 @@ export interface NuxtOptions {
   for: 'build' | 'start' | 'dev' | 'dry';
   projectRoot: string;
   outputPath?: string;
+  port?: number;
 }
 
 export async function loadNuxt(options: NuxtOptions) {
@@ -24,6 +25,6 @@ export async function loadNuxt(options: NuxtOptions) {
   await build(nuxtApp);
 
   if (options.for === 'dev') {
-    await nuxtApp.listen(3000);
+    await nuxtApp.listen(options.port);
   }
 }

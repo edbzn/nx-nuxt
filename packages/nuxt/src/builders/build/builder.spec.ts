@@ -48,6 +48,7 @@ describe('Command Runner Builder', () => {
       },
     });
     expect(build).toBeCalled();
+    expect(nuxtMock.listen).not.toBeCalled();
     expect(output.success).toBe(true);
   });
 });

@@ -7,6 +7,7 @@ import { build, loadNuxt } from 'nuxt';
 
 const options: ServerBuilderSchema = {
   root: '',
+  port: 3000,
 };
 
 const nuxtMock = {
@@ -44,6 +45,7 @@ describe('Command Runner Builder', () => {
       configOverrides: { modulesDir: ['../../node_modules'] },
     });
     expect(build).toBeCalled();
+    expect(nuxtMock.listen).toBeCalledWith(3000);
     expect(output.success).toBe(true);
   });
 });
