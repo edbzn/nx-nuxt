@@ -47,7 +47,6 @@ describe('app', () => {
       expect(tree.exists('apps/my-app/nuxt.config.js')).toBeTruthy();
       expect(tree.exists('apps/my-app/pages/index.vue')).toBeTruthy();
       expect(tree.exists('apps/my-app/layouts/default.vue')).toBeTruthy();
-      expect(tree.exists('apps/my-app/test/Logo.spec.js')).toBeTruthy();
     });
   });
 
@@ -78,7 +77,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.build.builder).toEqual('@vue:build');
+    expect(architectConfig.build.builder).toEqual('@vue/nuxt:build');
     expect(architectConfig.build.options).toEqual({
       root: 'apps/my-app',
       outputPath: 'dist/apps/my-app',
@@ -95,29 +94,9 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.serve.builder).toEqual('@vue:server');
+    expect(architectConfig.serve.builder).toEqual('@vue/nuxt:serve');
     expect(architectConfig.serve.options).toEqual({
-      buildTarget: 'my-app:build',
-      dev: true,
-    });
-    expect(architectConfig.serve.configurations).toEqual({
-      production: { dev: false, buildTarget: 'my-app:build:production' },
-    });
-  });
-
-  it('should set up the nrwl nuxt export builder', async () => {
-    const tree = await runSchematic(
-      'app',
-      {
-        name: 'my-app',
-      },
-      appTree
-    );
-    const workspaceJson = readJsonInTree(tree, 'workspace.json');
-    const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.export.builder).toEqual('@vue:export');
-    expect(architectConfig.export.options).toEqual({
-      buildTarget: 'my-app:build:production',
+      root: 'apps/my-app',
     });
   });
 
@@ -125,11 +104,11 @@ describe('app', () => {
     it('should not generate test configuration', async () => {
       const tree = await runSchematic(
         'app',
-        { name: 'myApp', unitTestRunner: 'none' },
+        { name: 'myApp', unitTestRunner: 'none', e2eTestRunner: 'none' },
         appTree
       );
       expect(tree.exists('jest.config.js')).toBeFalsy();
-      expect(tree.exists('apps/my-app/specs/index.spec.tsx')).toBeFalsy();
+      expect(tree.exists('apps/my-app/test/Logo.spec.js')).toBeFalsy();
     });
   });
 

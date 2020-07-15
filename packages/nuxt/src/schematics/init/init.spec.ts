@@ -14,7 +14,6 @@ describe('init', () => {
   it('should add Nuxt dependencies', async () => {
     const result = await runSchematic('init', {}, tree);
     const packageJson = readJsonInTree(result, 'package.json');
-    expect(packageJson.dependencies['@vue']).toBeUndefined();
     expect(packageJson.dependencies['nuxt']).toBeDefined();
   });
 
@@ -22,7 +21,7 @@ describe('init', () => {
     it('should be set if none was set before', async () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@vue');
+      expect(workspaceJson.cli.defaultCollection).toEqual('@vue/nuxt');
     });
   });
 
@@ -30,7 +29,9 @@ describe('init', () => {
     const result = await runSchematic(
       'init',
       {
+        name: 'myApp',
         unitTestRunner: 'none',
+        e2eTestRunner: 'none',
       },
       tree
     );

@@ -14,16 +14,18 @@ export function setDefaults(options: NormalizedSchema): Rule {
         workspace.extensions.schematics = jsonIdentity(
           workspace.extensions.schematics || {}
         );
-        workspace.extensions.schematics['@vue'] =
-          workspace.extensions.schematics['@vue'] || {};
-        const prev = jsonIdentity(workspace.extensions.schematics['@vue']);
+        workspace.extensions.schematics['@vue/nuxt'] =
+          workspace.extensions.schematics['@vue/nuxt'] || {};
+        const prev = jsonIdentity(workspace.extensions.schematics['@vue/nuxt']);
 
         workspace.extensions.schematics = {
           ...workspace.extensions.schematics,
-          '@vue': {
+          '@vue/nuxt': {
             ...prev,
             application: {
               linter: options.linter,
+              unitTestRunner: options.unitTestRunner,
+              e2eTestRunner: options.e2eTestRunner,
               ...jsonIdentity(prev.application),
             },
           },

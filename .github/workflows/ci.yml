@@ -51,4 +51,4 @@ jobs:
 
       - name: Test
         run: |
-          yarn nx affected:test
+          yarn nx affected:test --all
