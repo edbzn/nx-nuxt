@@ -8,6 +8,7 @@ import { createApplicationFiles } from './lib/create-application-files';
 import { normalizeOptions } from './lib/normalize-options';
 import { setDefaults } from './lib/set-defaults';
 import { updateJestConfig } from './lib/update-jest-config';
+import { updateNuxtConfig } from './lib/update-nuxt-config';
 import { updateNxJson, updateBabel } from './lib/update-nx-json';
 import { Schema } from './schema';
 
@@ -28,6 +29,7 @@ export default function (schema: Schema): Rule {
       addCypress(options),
       addJest(options),
       updateJestConfig(options),
+      updateNuxtConfig(options),
       setDefaults(options),
       formatFiles(options),
     ]);
