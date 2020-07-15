@@ -1,14 +1,9 @@
-import { Architect } from '@angular-devkit/architect';
-import { TestingArchitectHost } from '@angular-devkit/architect/testing';
-import { schema } from '@angular-devkit/core';
-import { join } from 'path';
-import { ServerBuilderSchema } from './schema';
+import { MockBuilderContext } from '@nrwl/workspace/testing';
 import { build, loadNuxt } from 'nuxt';
-
-const options: ServerBuilderSchema = {
-  root: '',
-  port: 3000,
-};
+import { getMockContext } from '../../utils/testing';
+import { ServerBuilderSchema } from './schema';
+import { runBuilder } from './server';
+import { take } from 'rxjs/operators';
 
 const nuxtMock = {
   listen: jest.fn(),
@@ -19,29 +14,24 @@ jest.mock('nuxt', () => ({
   loadNuxt: jest.fn(() => Promise.resolve(nuxtMock)),
 }));
 
-describe('Command Runner Builder', () => {
-  let architect: Architect;
-  let architectHost: TestingArchitectHost;
+describe('Nuxt.js Server', () => {
+  let context: MockBuilderContext;
 
   beforeEach(async () => {
-    const registry = new schema.CoreSchemaRegistry();
-    registry.addPostTransform(schema.transforms.addUndefinedDefaults);
-
-    architectHost = new TestingArchitectHost('/root', '/root');
-    architect = new Architect(architectHost, registry);
-
-    await architectHost.addBuilderFromPackage(join(__dirname, '../../..'));
+    context = await getMockContext();
   });
 
   it('can run', async () => {
-    const run = await architect.scheduleBuilder('@vue/nuxt:serve', options);
-    const output = await run.result;
+    const options: ServerBuilderSchema = {
+      root: '/',
+      port: 3000,
+    };
 
-    await run.stop();
+    const output = await runBuilder(options, context).pipe(take(1)).toPromise();
 
     expect(loadNuxt).toBeCalledWith({
       for: 'dev',
-      rootDir: '/root',
+      rootDir: '/',
       configOverrides: { modulesDir: ['../../node_modules'] },
     });
     expect(build).toBeCalled();
