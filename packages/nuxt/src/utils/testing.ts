@@ -9,7 +9,7 @@ import { MockBuilderContext } from '@nrwl/workspace/testing';
 import { join } from 'path';
 
 const testRunner = new SchematicTestRunner(
-  '@vue',
+  '@vue/nuxt',
   join(__dirname, '../../collection.json')
 );
 
