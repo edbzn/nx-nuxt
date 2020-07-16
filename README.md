@@ -33,9 +33,9 @@ nx generate @vue/nuxt:app <my-app> [options]
 
 ## Builders
 
-### build
+### `build`
 
-Builds a Nuxt.js application.
+Build a Nuxt.js application.
 
 ```bash
 nx build <my-app> [options]
@@ -47,9 +47,9 @@ nx build <my-app> [options]
 
 **outputPath** type: `string`
 
-### serve
+### `serve`
 
-Builds and serves a Nuxt.js application.
+Build and serve a Nuxt.js application.
 
 ```bash
 nx serve <my-app> [options]
