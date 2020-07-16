@@ -23,8 +23,6 @@ Generating a new application with the following:
 nx generate @vue/nuxt:app <my-app> [options]
 ```
 
-#### Options
-
 **unitTestRunner** type: `"jest" | "none"`
 
 **e2eTestRunner** type: `"jest" | "none"`
@@ -41,8 +39,6 @@ Build a Nuxt.js application.
 nx build <my-app> [options]
 ```
 
-#### Options
-
 **root** type: `string`
 
 **outputPath** type: `string`
@@ -54,8 +50,6 @@ Build and serve a Nuxt.js application.
 ```bash
 nx serve <my-app> [options]
 ```
-
-#### Options
 
 **root** type: `string`
 
