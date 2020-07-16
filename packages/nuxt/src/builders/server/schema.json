@@ -10,7 +10,7 @@
       "type": "string"
     },
     "port": {
-      "description": "The source root",
+      "description": "The server port",
       "type": "number",
       "default": 3000
     }
