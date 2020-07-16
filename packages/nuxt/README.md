@@ -25,7 +25,7 @@ nx generate @vue/nuxt:app <my-app> [options]
 
 **unitTestRunner** type: `"jest" | "none"`
 
-**e2eTestRunner** type: `"jest" | "none"`
+**e2eTestRunner** type: `"cypress" | "none"`
 
 **skipFormat** type: `boolean`
 
