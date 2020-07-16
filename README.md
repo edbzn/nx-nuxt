@@ -1,21 +1,62 @@
 # @vue/nuxt
 
-> A Nuxt.js plugin for Nx workspaces.
+> A Nuxt.js Plugin for Nx Workspaces.
 
-## Install
+Contains builders and schematics for managing Nuxt.js applications and libraries within an Nx workspace. It provides:
+
+Scaffolding for creating, building, serving, linting, and testing Nuxt.js applications.
+Integration with building, and serving a Nuxt.js application.
+
+## Installing the Plugin
+
+Installing the Nuxt plugin to a Nx workspace can be done with the following:
 
 ```bash
 yarn add @edbzn/nuxt -D
 ```
 
-```bash
-nx generate @vue/nuxt:app <my-app>
-```
+## Application scaffolding
 
-## Usage
+Generating a new application with the following:
 
 ```bash
-nx serve <my-app>
-nx build <my-app>
-nx test <my-app>
+nx generate @vue/nuxt:app <my-app> [options]
 ```
+
+#### Options
+
+**unitTestRunner** type: `"jest" | "none"`
+
+**e2eTestRunner** type: `"jest" | "none"`
+
+**skipFormat** type: `boolean`
+
+## Builders
+
+### build
+
+Builds a Nuxt.js application.
+
+```bash
+nx build <my-app> [options]
+```
+
+#### Options
+
+**root** type: `string`
+
+**outputPath** type: `string`
+
+### serve
+
+Builds and serves a Nuxt.js application.
+
+```bash
+nx serve <my-app> [options]
+```
+
+#### Options
+
+**root** type: `string`
+
+**port** type: `number`
