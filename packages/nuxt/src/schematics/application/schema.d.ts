@@ -7,4 +7,6 @@ export interface Schema {
   e2eTestRunner: 'cypress' | 'none';
   linter: Linter;
   skipWorkspaceJson?: boolean;
+  mode?: 'universal' | 'spa';
+  target?: 'server' | 'static';
 }

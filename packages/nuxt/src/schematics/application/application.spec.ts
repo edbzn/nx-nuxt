@@ -1,4 +1,5 @@
 import { Tree } from '@angular-devkit/schematics';
+import { UnitTestTree } from '@angular-devkit/schematics/testing';
 import { NxJson, readJsonInTree } from '@nrwl/workspace';
 import { createEmptyWorkspace } from '@nrwl/workspace/testing';
 import { runSchematic } from '../../utils/testing';
@@ -122,6 +123,61 @@ describe('app', () => {
       expect(tree.exists('apps/my-app-e2e')).toBeFalsy();
       const workspaceJson = readJsonInTree(tree, 'workspace.json');
       expect(workspaceJson.projects['my-app-e2e']).toBeUndefined();
+    });
+  });
+
+  describe('nuxt config options', () => {
+    const isInNuxtConfig = (value: string, tree: UnitTestTree): boolean =>
+      tree.readContent('apps/my-app/nuxt.config.js').includes(value);
+
+    describe('mode', () => {
+      it('should generate universal rendering mode configuration', async () => {
+        const tree = await runSchematic(
+          'app',
+          { name: 'myApp', mode: 'universal' },
+          appTree
+        );
+        expect(isInNuxtConfig("mode: 'universal',", tree)).toBeTruthy();
+      });
+
+      it('should generate spa rendering mode configuration', async () => {
+        const tree = await runSchematic(
+          'app',
+          { name: 'myApp', mode: 'spa' },
+          appTree
+        );
+        expect(isInNuxtConfig("mode: 'spa',", tree)).toBeTruthy();
+      });
+
+      it('should throw when unknown value is passed to rendering mode configuration', async () =>
+        await expect(
+          runSchematic('app', { name: 'myApp', mode: 'foo' }, appTree)
+        ).rejects.toThrow());
+    });
+
+    describe('target', () => {
+      it('should generate ssr configuration', async () => {
+        const tree = await runSchematic(
+          'app',
+          { name: 'myApp', target: 'server' },
+          appTree
+        );
+        expect(isInNuxtConfig("target: 'server',", tree)).toBeTruthy();
+      });
+
+      it('should generate static configuration', async () => {
+        const tree = await runSchematic(
+          'app',
+          { name: 'myApp', target: 'static' },
+          appTree
+        );
+        expect(isInNuxtConfig("target: 'static',", tree)).toBeTruthy();
+      });
+
+      it('should throw when unknown value is passed to target configuration', async () =>
+        await expect(
+          runSchematic('app', { name: 'myApp', target: 'foo' }, appTree)
+        ).rejects.toThrow());
     });
   });
 });

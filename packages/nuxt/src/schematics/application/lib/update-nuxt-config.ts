@@ -6,8 +6,8 @@ export function updateNuxtConfig(options: NormalizedSchema): Rule {
     const configPath = `${options.appProjectRoot}/nuxt.config.js`;
     const content = `
       export default {
-        mode: 'universal',
-        target: 'server',
+        mode: '${options.mode}',
+        target: '${options.target}',
         head: {
           title: process.env.npm_package_name || '',
           meta: [

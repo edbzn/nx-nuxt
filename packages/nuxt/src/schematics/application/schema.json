@@ -56,6 +56,18 @@
       "type": "string",
       "description": "Add tags to the application (used for linting)",
       "alias": "t"
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["universal", "spa"],
+      "description": "Nuxt rendering mode",
+      "default": "universal"
+    },
+    "target": {
+      "type": "string",
+      "enum": ["server", "static"],
+      "description": "Deployment target",
+      "default": "server"
     }
   },
   "required": []
