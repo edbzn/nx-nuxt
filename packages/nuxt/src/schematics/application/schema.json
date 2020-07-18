@@ -2,12 +2,6 @@
   "$schema": "http://json-schema.org/schema",
   "id": "NxNuxtApp",
   "title": "Create a Nuxt.js Application for Nx",
-  "examples": [
-    {
-      "command": "g app myapp --directory=myorg",
-      "description": "Generate apps/myorg/myapp and apps/myorg/myapp-e2e"
-    }
-  ],
   "type": "object",
   "properties": {
     "name": {
@@ -61,13 +55,16 @@
       "type": "string",
       "enum": ["universal", "spa"],
       "description": "Nuxt rendering mode",
-      "default": "universal"
+      "default": "universal",
+      "x-prompt": "What mode would you like to use for the project?"
     },
     "target": {
       "type": "string",
       "enum": ["server", "static"],
       "description": "Deployment target",
-      "default": "server"
+      "default": "server",
+      "x-prompt": "What target would you like to use for the project?"
+
     }
   },
   "required": []
