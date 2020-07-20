@@ -15,23 +15,27 @@ Installing the Nuxt plugin to a Nx workspace can be done with the following:
 yarn add @edbzn/nuxt -D
 ```
 
-## Application scaffolding
+## Application
 
 Generating a new application with the following:
 
 ```bash
-nx generate @vue/nuxt:app <my-app> [options]
+nx generate @edbzn/nuxt:app <my-app> [options]
 ```
 
-**unitTestRunner** type: `"jest" | "none"`
+**mode** `"universal" | "spa"`
 
-**e2eTestRunner** type: `"cypress" | "none"`
+**target** `"server" | "static"`
 
-**skipFormat** type: `boolean`
+**unitTestRunner** `"jest" | "none"`
+
+**e2eTestRunner** `"cypress" | "none"`
+
+**skipFormat** `boolean`
 
 ## Builders
 
-### `build`
+#### `build`
 
 Build a Nuxt.js application.
 
@@ -39,11 +43,11 @@ Build a Nuxt.js application.
 nx build <my-app> [options]
 ```
 
-**root** type: `string`
+**root** `string`
 
-**outputPath** type: `string`
+**outputPath** `string`
 
-### `serve`
+#### `serve`
 
 Build and serve a Nuxt.js application.
 
@@ -51,6 +55,6 @@ Build and serve a Nuxt.js application.
 nx serve <my-app> [options]
 ```
 
-**root** type: `string`
+**root** `string`
 
-**port** type: `number`
+**port** `number`
