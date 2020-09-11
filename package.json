@@ -42,12 +42,12 @@
     "nuxt": "2.13.3"
   },
   "devDependencies": {
-    "@nrwl/cypress": "9.5.1",
-    "@nrwl/eslint-plugin-nx": "9.5.1",
-    "@nrwl/jest": "9.5.1",
-    "@nrwl/nx-plugin": "9.5.1",
-    "@nrwl/web": "9.5.1",
-    "@nrwl/workspace": "9.5.1",
+    "@nrwl/cypress": "10.2.0",
+    "@nrwl/eslint-plugin-nx": "10.2.0",
+    "@nrwl/jest": "10.2.0",
+    "@nrwl/nx-plugin": "10.2.0",
+    "@nrwl/web": "10.2.0",
+    "@nrwl/workspace": "10.2.0",
     "@types/jest": "26.0.5",
     "@types/node": "8.9.5",
     "@typescript-eslint/eslint-plugin": "2.19.2",
