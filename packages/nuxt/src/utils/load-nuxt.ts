@@ -1,4 +1,5 @@
-import { loadNuxt as load, build } from 'nuxt';
+import { NuxtConfig } from '@nuxt/types';
+import { build, loadNuxt as load } from 'nuxt';
 
 export interface NuxtOptions {
   for: 'build' | 'start' | 'dev' | 'dry';
@@ -8,7 +9,7 @@ export interface NuxtOptions {
 }
 
 export async function loadNuxt(options: NuxtOptions) {
-  const configOverrides: any = {
+  const configOverrides: NuxtConfig = {
     modulesDir: ['../../node_modules'],
   };
 
