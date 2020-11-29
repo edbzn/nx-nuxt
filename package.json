@@ -39,7 +39,7 @@
     "help": "nx help"
   },
   "dependencies": {
-    "nuxt": "2.13.3"
+    "nuxt": "2.14.7"
   },
   "devDependencies": {
     "@nrwl/cypress": "9.5.1",
