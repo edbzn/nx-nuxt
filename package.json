@@ -48,7 +48,7 @@
     "@nrwl/nx-plugin": "9.5.1",
     "@nrwl/web": "9.5.1",
     "@nrwl/workspace": "9.5.1",
-    "@types/jest": "26.0.5",
+    "@types/jest": "26.0.15",
     "@types/node": "8.9.5",
     "@typescript-eslint/eslint-plugin": "2.19.2",
     "@typescript-eslint/parser": "2.19.2",
