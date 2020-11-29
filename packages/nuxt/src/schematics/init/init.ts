@@ -6,18 +6,17 @@ import { Schema } from './schema';
 
 const updateDependencies = addDepsToPackageJson(
   {
-    nuxt: '^2.13.0',
-    '@nuxt/typescript-runtime': '^1.0.0',
+    '@nuxt/typescript-runtime': '^2.0.0',
+    'core-js': '^3.6.5',
+    nuxt: '^2.14.6',
   },
   {
-    '@nuxt/babel-preset-app': '^2.13.3',
-    '@nuxt/typescript-build': '^1.0.3',
-    '@vue/test-utils': '^1.0.3',
-    'babel-core': '7.0.0-bridge.0',
-    jest: '^26.0.1',
-    'ts-jest': '^26.1.0',
+    '@nuxt/babel-preset-app': '^2.14.7',
+    '@nuxt/typescript-build': '^2.0.3',
+    '@vue/test-utils': '^1.1.1',
+    'fork-ts-checker-webpack-plugin': '^6.0.4', // Fix for yarn see https://github.com/nuxt/typescript/issues/145#issuecomment-703000886
+    'babel-core': '^7.0.0-bridge.0',
     'vue-jest': '^3.0.4',
-    'vue-loader': '^15.9.3',
   }
 );
 
