@@ -1,6 +1,6 @@
 # @edbzn/nuxt
 
-> An **Nx Plugin** to run **Nuxt.js** in a workspace.
+> **Nx Plugin** for **Nuxt.js**.
 
 Contains builders and schematics for managing Nuxt.js applications and libraries within an Nx workspace. It provides:
 
