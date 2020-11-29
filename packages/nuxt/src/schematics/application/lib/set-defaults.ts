@@ -1,6 +1,8 @@
 import { JsonObject } from '@angular-devkit/core';
 import { noop, Rule } from '@angular-devkit/schematics';
 import { updateWorkspace } from '@nrwl/workspace';
+
+import { packageName } from '../../../utils/consts';
 import { NormalizedSchema } from './normalize-options';
 
 function jsonIdentity(x: any): JsonObject {
@@ -14,13 +16,13 @@ export function setDefaults(options: NormalizedSchema): Rule {
         workspace.extensions.schematics = jsonIdentity(
           workspace.extensions.schematics || {}
         );
-        workspace.extensions.schematics['@vue/nuxt'] =
-          workspace.extensions.schematics['@vue/nuxt'] || {};
-        const prev = jsonIdentity(workspace.extensions.schematics['@vue/nuxt']);
+        workspace.extensions.schematics[packageName] =
+          workspace.extensions.schematics[packageName] || {};
+        const prev = jsonIdentity(workspace.extensions.schematics[packageName]);
 
         workspace.extensions.schematics = {
           ...workspace.extensions.schematics,
-          '@vue/nuxt': {
+          [packageName]: {
             ...prev,
             application: {
               linter: options.linter,

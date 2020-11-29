@@ -8,8 +8,10 @@ import { updateWorkspace } from '@nrwl/workspace/src/utils/workspace';
 import { MockBuilderContext } from '@nrwl/workspace/testing';
 import { join } from 'path';
 
+import { packageName } from './consts';
+
 const testRunner = new SchematicTestRunner(
-  '@vue/nuxt',
+  packageName,
   join(__dirname, '../../collection.json')
 );
 

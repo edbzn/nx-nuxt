@@ -2,13 +2,15 @@ import { join, normalize } from '@angular-devkit/core';
 import { Rule } from '@angular-devkit/schematics';
 import { generateProjectLint } from '@nrwl/workspace';
 import { updateWorkspaceInTree } from '@nrwl/workspace/src/utils/ast-utils';
+
+import { packageName } from '../../../utils/consts';
 import { NormalizedSchema } from './normalize-options';
 
 export function addProject(options: NormalizedSchema): Rule {
   return updateWorkspaceInTree((json) => {
     const architect: { [key: string]: any } = {};
     architect.build = {
-      builder: '@vue/nuxt:build',
+      builder: packageName + ':build',
       options: {
         root: options.appProjectRoot,
         outputPath: join(normalize('dist'), options.appProjectRoot),
@@ -16,7 +18,7 @@ export function addProject(options: NormalizedSchema): Rule {
     };
 
     architect.serve = {
-      builder: '@vue/nuxt:serve',
+      builder: packageName + ':serve',
       options: {
         root: options.appProjectRoot,
       },

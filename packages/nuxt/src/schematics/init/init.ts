@@ -1,9 +1,7 @@
 import { chain, noop, Rule } from '@angular-devkit/schematics';
-import {
-  addDepsToPackageJson,
-  addPackageWithInit,
-  setDefaultCollection,
-} from '@nrwl/workspace';
+import { addDepsToPackageJson, addPackageWithInit, setDefaultCollection } from '@nrwl/workspace';
+
+import { packageName } from '../../utils/consts';
 import { Schema } from './schema';
 
 const updateDependencies = addDepsToPackageJson(
@@ -25,7 +23,7 @@ const updateDependencies = addDepsToPackageJson(
 
 export default function (schema: Schema): Rule {
   return chain([
-    setDefaultCollection('@vue/nuxt'),
+    setDefaultCollection(packageName),
     schema.unitTestRunner === 'jest'
       ? addPackageWithInit('@nrwl/jest')
       : noop(),

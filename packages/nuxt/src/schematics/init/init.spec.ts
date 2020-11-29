@@ -1,6 +1,8 @@
 import { Tree } from '@angular-devkit/schematics';
-import { createEmptyWorkspace } from '@nrwl/workspace/testing';
 import { readJsonInTree } from '@nrwl/workspace';
+import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+
+import { packageName } from '../../utils/consts';
 import { runSchematic } from '../../utils/testing';
 
 describe('init', () => {
@@ -21,7 +23,7 @@ describe('init', () => {
     it('should be set if none was set before', async () => {
       const result = await runSchematic('init', {}, tree);
       const workspaceJson = readJsonInTree(result, 'workspace.json');
-      expect(workspaceJson.cli.defaultCollection).toEqual('@vue/nuxt');
+      expect(workspaceJson.cli.defaultCollection).toEqual(packageName);
     });
   });
 

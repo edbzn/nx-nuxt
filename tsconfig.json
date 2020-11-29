@@ -16,7 +16,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@vue/nuxt": ["packages/nuxt/src/index.ts"]
+      "@edbzn/nuxt": ["packages/nuxt/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

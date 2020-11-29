@@ -2,6 +2,8 @@ import { Tree } from '@angular-devkit/schematics';
 import { UnitTestTree } from '@angular-devkit/schematics/testing';
 import { NxJson, readJsonInTree } from '@nrwl/workspace';
 import { createEmptyWorkspace } from '@nrwl/workspace/testing';
+
+import { packageName } from '../../utils/consts';
 import { runSchematic } from '../../utils/testing';
 
 describe('app', () => {
@@ -78,7 +80,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.build.builder).toEqual('@vue/nuxt:build');
+    expect(architectConfig.build.builder).toEqual(packageName + ':build');
     expect(architectConfig.build.options).toEqual({
       root: 'apps/my-app',
       outputPath: 'dist/apps/my-app',
@@ -95,7 +97,7 @@ describe('app', () => {
     );
     const workspaceJson = readJsonInTree(tree, 'workspace.json');
     const architectConfig = workspaceJson.projects['my-app'].architect;
-    expect(architectConfig.serve.builder).toEqual('@vue/nuxt:serve');
+    expect(architectConfig.serve.builder).toEqual(packageName + ':serve');
     expect(architectConfig.serve.options).toEqual({
       root: 'apps/my-app',
     });

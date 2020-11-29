@@ -64,7 +64,7 @@
           "builder": "@nrwl/nx-plugin:e2e",
           "options": {
             "target": "nuxt:build",
-            "npmPackageName": "@vue/nuxt",
+            "npmPackageName": "@edbzn/nuxt",
             "pluginOutputPath": "dist/packages/nuxt",
             "jestConfig": "e2e/nuxt-e2e/jest.config.js",
             "tsSpecConfig": "e2e/nuxt-e2e/tsconfig.spec.json"
