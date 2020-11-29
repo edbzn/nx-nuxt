@@ -3,13 +3,15 @@
   "version": "0.1.0",
   "license": "MIT",
   "keywords": [
+    "Nx",
+    "Devtool",
     "Monorepo",
     "Node",
     "Nuxt",
     "CLI"
   ],
   "author": "Edouard Bozon <bozonedouard@gmail.com>",
-  "repository": "git@github.com:edbzn/vue.git",
+  "repository": "git@github.com:edbzn/nx-nuxt.git",
   "bugs": {
     "url": "https://github.com/edbzn/@vue/issues"
   },
