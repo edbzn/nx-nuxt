@@ -15,7 +15,9 @@ Installing the Nuxt.js Plugin to a Nx workspace can be done with the following:
 yarn add @edbzn/nuxt -D
 ```
 
-## Application
+## Schematics
+
+#### `application`
 
 Generating a new application with the following:
 
