@@ -9,7 +9,7 @@ export function updateNuxtConfig(options: NormalizedSchema): Rule {
         target: '${options.target}',
         ssr: ${options.mode === 'universal'},
         head: {
-          title: ${options.name} || '',
+          title: '${options.name}' || '',
           meta: [
             { charset: 'utf-8' },
             { name: 'viewport', content: 'width=device-width, initial-scale=1' },
