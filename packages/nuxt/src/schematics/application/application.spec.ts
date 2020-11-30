@@ -70,7 +70,7 @@ describe('app', () => {
     );
   });
 
-  it('should set up the nrwl nuxt build builder', async () => {
+  it('should set up the Nuxt.js build builder', async () => {
     const tree = await runSchematic(
       'app',
       {
@@ -87,7 +87,7 @@ describe('app', () => {
     });
   });
 
-  it('should set up the nrwl nuxt server builder', async () => {
+  it('should set up the Nuxt.js server builder', async () => {
     const tree = await runSchematic(
       'app',
       {
@@ -100,6 +100,7 @@ describe('app', () => {
     expect(architectConfig.serve.builder).toEqual(packageName + ':serve');
     expect(architectConfig.serve.options).toEqual({
       root: 'apps/my-app',
+      outputPath: 'dist/apps/my-app',
     });
   });
 
