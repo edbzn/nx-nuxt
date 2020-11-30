@@ -1,12 +1,7 @@
-import {
-  checkFilesExist,
-  ensureNxProject,
-  readJson,
-  runNxCommandAsync,
-  uniq,
-} from '@nrwl/nx-plugin/testing';
+import { checkFilesExist, ensureNxProject, readJson, runNxCommandAsync, uniq } from '@nrwl/nx-plugin/testing';
+
 describe('nuxt e2e', () => {
-  fit('should create nuxt', async (done) => {
+  it('should create nuxt', async (done) => {
     const plugin = uniq('nuxt');
     ensureNxProject('@edbzn/nuxt', 'dist/packages/nuxt');
     await runNxCommandAsync(`generate @edbzn/nuxt:app ${plugin}`);
@@ -22,7 +17,7 @@ describe('nuxt e2e', () => {
       const plugin = uniq('nuxt');
       ensureNxProject('@edbzn/nuxt', 'dist/packages/nuxt');
       await runNxCommandAsync(
-        `generate @edbzn/nuxt:nuxtPlugin ${plugin} --directory subdir`
+        `generate @edbzn/nuxt ${plugin} --directory subdir`
       );
       expect(() =>
         checkFilesExist(`libs/subdir/${plugin}/src/index.ts`)
@@ -36,7 +31,7 @@ describe('nuxt e2e', () => {
       const plugin = uniq('nuxt');
       ensureNxProject('@edbzn/nuxt', 'dist/packages/nuxt');
       await runNxCommandAsync(
-        `generate @edbzn/nuxt:nuxtPlugin ${plugin} --tags e2etag,e2ePackage`
+        `generate @edbzn/nuxt ${plugin} --tags e2etag,e2ePackage`
       );
       const nxJson = readJson('nx.json');
       expect(nxJson.projects[plugin].tags).toEqual(['e2etag', 'e2ePackage']);
