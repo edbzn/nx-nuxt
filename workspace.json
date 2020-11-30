@@ -8,21 +8,22 @@
       "schematics": {},
       "architect": {
         "lint": {
-          "builder": "@nrwl/linter:lint",
+          "builder": "@nrwl/linter:eslint",
           "options": {
-            "linter": "eslint",
-            "tsConfig": [
-              "packages/nuxt/tsconfig.lib.json",
-              "packages/nuxt/tsconfig.spec.json"
-            ],
-            "exclude": ["**/node_modules/**", "!packages/nuxt/**/*"]
+            "lintFilePatterns": [
+              "packages/nuxt/**/*.ts",
+              "packages/nuxt/**/*.spec.ts",
+              "packages/nuxt/**/*.spec.tsx",
+              "packages/nuxt/**/*.spec.js",
+              "packages/nuxt/**/*.spec.jsx",
+              "packages/nuxt/**/*.d.ts"
+            ]
           }
         },
         "test": {
           "builder": "@nrwl/jest:jest",
           "options": {
             "jestConfig": "packages/nuxt/jest.config.js",
-            "tsConfig": "packages/nuxt/tsconfig.spec.json",
             "passWithNoTests": true
           }
         },
@@ -50,7 +51,8 @@
                 "glob": "builders.json",
                 "output": "."
               }
-            ]
+            ],
+            "srcRootForCompilationRoot": "packages/nuxt"
           }
         }
       }
@@ -66,8 +68,7 @@
             "target": "nuxt:build",
             "npmPackageName": "@edbzn/nuxt",
             "pluginOutputPath": "dist/packages/nuxt",
-            "jestConfig": "e2e/nuxt-e2e/jest.config.js",
-            "tsSpecConfig": "e2e/nuxt-e2e/tsconfig.spec.json"
+            "jestConfig": "e2e/nuxt-e2e/jest.config.js"
           }
         }
       }
