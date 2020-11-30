@@ -1,5 +1,6 @@
 import { chain, Rule, Tree } from '@angular-devkit/schematics';
 import { addLintFiles, formatFiles } from '@nrwl/workspace';
+
 import init from '../init/init';
 import { addCypress } from './lib/add-cypress';
 import { addJest } from './lib/add-jest';
@@ -9,7 +10,7 @@ import { normalizeOptions } from './lib/normalize-options';
 import { setDefaults } from './lib/set-defaults';
 import { updateJestConfig } from './lib/update-jest-config';
 import { updateNuxtConfig } from './lib/update-nuxt-config';
-import { updateNxJson, updateBabel } from './lib/update-nx-json';
+import { updateBabel, updateNxJson } from './lib/update-nx-json';
 import { Schema } from './schema';
 
 export default function (schema: Schema): Rule {

@@ -134,22 +134,22 @@ describe('app', () => {
       tree.readContent('apps/my-app/nuxt.config.js').includes(value);
 
     describe('mode', () => {
-      it('should generate universal rendering mode configuration', async () => {
+      it('should generate universal rendering configuration', async () => {
         const tree = await runSchematic(
           'app',
           { name: 'myApp', mode: 'universal' },
           appTree
         );
-        expect(isInNuxtConfig("mode: 'universal',", tree)).toBeTruthy();
+        expect(isInNuxtConfig("ssr: true,", tree)).toBeTruthy();
       });
 
-      it('should generate spa rendering mode configuration', async () => {
+      it('should generate spa rendering configuration', async () => {
         const tree = await runSchematic(
           'app',
           { name: 'myApp', mode: 'spa' },
           appTree
         );
-        expect(isInNuxtConfig("mode: 'spa',", tree)).toBeTruthy();
+        expect(isInNuxtConfig("ssr: false,", tree)).toBeTruthy();
       });
 
       it('should throw when unknown value is passed to rendering mode configuration', async () =>
