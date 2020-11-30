@@ -1,13 +1,14 @@
 import {
+  BuilderContext,
   BuilderOutput,
   createBuilder,
-  BuilderContext,
 } from '@angular-devkit/architect';
-import { Observable, from } from 'rxjs';
-import { map } from 'rxjs/operators';
-import { BuildBuilderSchema } from './schema';
-import { loadNuxt } from '../../utils/load-nuxt';
 import { resolve } from 'path';
+import { from, Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+import { loadNuxt } from '../../utils/load-nuxt';
+import { BuildBuilderSchema } from './schema';
 
 export function runBuilder(
   options: BuildBuilderSchema,
@@ -16,7 +17,7 @@ export function runBuilder(
   return from(
     loadNuxt({
       for: 'build',
-      outputPath: resolve(context.workspaceRoot, options.outputPath),
+      buildDir: resolve(context.workspaceRoot, options.outputPath),
       projectRoot: resolve(context.workspaceRoot, options.root),
     })
   ).pipe(map(() => ({ success: true })));

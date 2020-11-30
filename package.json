@@ -1,8 +1,10 @@
 {
-  "name": "vue",
+  "name": "nx-nuxt",
   "version": "0.0.0",
   "license": "MIT",
   "keywords": [
+    "Nx",
+    "Devtool",
     "Monorepo",
     "Node",
     "Nuxt",
@@ -11,7 +13,7 @@
   "author": "Edouard Bozon <bozonedouard@gmail.com>",
   "repository": "git@github.com:edbzn/nx-nuxt.git",
   "bugs": {
-    "url": "https://github.com/edbzn/@vue/issues"
+    "url": "https://github.com/edbzn/nx-nuxt/issues"
   },
   "private": true,
   "scripts": {
@@ -39,7 +41,8 @@
     "help": "nx help"
   },
   "dependencies": {
-    "nuxt": "2.14.7"
+    "nuxt": "~2.14.7",
+    "nuxt-start": "~2.14.7"
   },
   "devDependencies": {
     "@nrwl/cypress": "9.5.1",

@@ -1,13 +1,10 @@
-import {
-  BuilderOutput,
-  createBuilder,
-  BuilderContext,
-} from '@angular-devkit/architect';
-import { Observable, from } from 'rxjs';
-import { switchMap, tap } from 'rxjs/operators';
-import { ServerBuilderSchema } from './schema';
-import { loadNuxt } from '../../utils/load-nuxt';
+import { BuilderContext, BuilderOutput, createBuilder } from '@angular-devkit/architect';
 import { resolve } from 'path';
+import { from, Observable } from 'rxjs';
+import { switchMap, tap } from 'rxjs/operators';
+
+import { loadNuxt } from '../../utils/load-nuxt';
+import { ServerBuilderSchema } from './schema';
 
 export function runBuilder(
   options: ServerBuilderSchema,
@@ -15,14 +12,17 @@ export function runBuilder(
 ): Observable<BuilderOutput> {
   return from(
     loadNuxt({
-      for: 'dev',
+      for: options.dev ? 'dev' : 'start',
       port: options.port,
       projectRoot: resolve(context.workspaceRoot, options.root),
+      buildDir: resolve(context.workspaceRoot, options.outputPath),
     })
   ).pipe(
     tap(() =>
       context.logger.info(
-        `\n Dev Server listening at http://localhost:${options.port} \n`
+        `\n✅ ${
+          options.dev ? 'Dev Server' : 'Server'
+        } listening at http://localhost:${options.port} \n`
       )
     ),
     switchMap(

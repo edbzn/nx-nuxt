@@ -2,11 +2,20 @@
   "$schema": "https://json-schema.org/draft-07/schema",
   "$id": "https://json-schema.org/draft-07/schema",
   "title": "Server builder",
-  "description": "",
+  "description": "Serve a Nuxt.js app",
   "type": "object",
   "properties": {
+    "dev": {
+      "type": "boolean",
+      "description": "Serve the application in the dev mode",
+      "default": true
+    },
     "root": {
       "description": "The source root",
+      "type": "string"
+    },
+    "outputPath": {
+      "description": "The distribution build directory",
       "type": "string"
     },
     "port": {

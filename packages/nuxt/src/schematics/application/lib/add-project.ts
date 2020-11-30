@@ -21,6 +21,7 @@ export function addProject(options: NormalizedSchema): Rule {
       builder: packageName + ':serve',
       options: {
         root: options.appProjectRoot,
+        outputPath: join(normalize('dist'), options.appProjectRoot),
       },
     };
 

@@ -13,7 +13,7 @@
   "author": "Edouard Bozon <bozonedouard@gmail.com>",
   "repository": "git@github.com:edbzn/nx-nuxt.git",
   "bugs": {
-    "url": "https://github.com/edbzn/@vue/issues"
+    "url": "https://github.com/edbzn/nx-nuxt/issues"
   },
   "main": "src/index.js",
   "schematics": "./collection.json",

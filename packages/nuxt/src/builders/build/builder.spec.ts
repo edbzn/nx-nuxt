@@ -1,5 +1,6 @@
 import { MockBuilderContext } from '@nrwl/workspace/testing';
 import { build, loadNuxt } from 'nuxt';
+
 import { getMockContext } from '../../utils/testing';
 import { runBuilder } from './builder';
 import { BuildBuilderSchema } from './schema';
@@ -20,7 +21,7 @@ describe('Nuxt.js Builder', () => {
     context = await getMockContext();
   });
 
-  it('should call next build', async () => {
+  it('should build Nuxt.js', async () => {
     const options: BuildBuilderSchema = {
       root: '',
       outputPath: 'dist',
