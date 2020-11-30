@@ -2,6 +2,8 @@
 
 > Nx Plugin for Nuxt.js.
 
+<img src="https://github.com/edbzn/nx-nuxt/blob/master/logo.png" alt="@edbzn/nuxt logo" width="500" />
+
 Contains builders and schematics for managing Nuxt.js applications and libraries within an Nx workspace. It provides:
 
 Scaffolding for creating, building, serving, linting, and testing Nuxt.js applications.
