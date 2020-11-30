@@ -70,3 +70,23 @@ Available options :
 - **port** `number`
 - **dev** `boolean`
 - **outputPath** `string`
+
+#### `test`
+
+Test a Nuxt.js application using `@nrwl/jest`.
+
+```bash
+nx test <my-app> [...options]
+```
+
+[Available options](https://nx.dev/latest/node/plugins/jest/builders/jest#properties).
+
+#### `e2e`
+
+Test a Nuxt.js application using `@nrwl/cypress`.
+
+```bash
+nx e2e <my-app> [...options]
+```
+
+[Available options](https://nx.dev/latest/node/plugins/cypress/builders/cypress#properties).
