@@ -90,3 +90,13 @@ nx e2e <my-app> [...options]
 ```
 
 [Available options](https://nx.dev/latest/node/plugins/cypress/builders/cypress#properties).
+
+#### `lint`
+
+Linting using `@nrwl/linter` and eslint.
+
+```bash
+nx lint <my-app> [...options]
+```
+
+[Available options](https://nx.dev/latest/react/plugins/linter/builders/eslint#eslint).
