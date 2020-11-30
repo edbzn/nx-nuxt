@@ -31,8 +31,8 @@ Available options :
 
 - **mode** `"universal" | "spa"`
 - **target** `"server" | "static"`
-- **unitTestRunner** `"jest" | "none"`
-- **e2eTestRunner** `"cypress" | "none"`
+- **unitTestRunner** `"jest" | "none"` _(require `@nrwl/jest` to be installed)_
+- **e2eTestRunner** `"cypress" | "none"` _(require `@nrwl/cypress` to be installed)_
 - **skipFormat** `boolean`
 
 ## Builders
