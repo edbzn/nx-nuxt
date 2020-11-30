@@ -1,9 +1,0 @@
-# Nuxt.js
-
-## Build Setup
-
-```bash
-nx serve <my-app>
-nx build <my-app>
-nx test <my-app>
-```
