@@ -2,7 +2,7 @@
   <div class="container">
     <div>
       <Logo />
-      <h1 class="title">nuxt</h1>
+      <h1 class="title"><%= name %></h1>
       <div class="links">
         <a
           href="https://github.com/edbzn/nx-nuxt"
@@ -10,7 +10,7 @@
           rel="noopener noreferrer"
           class="button--grey"
         >
-          Learn more about this plugin
+          Learn more about @edbzn/nuxt
         </a>
       </div>
     </div>
