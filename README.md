@@ -1,6 +1,6 @@
 # @edbzn/nuxt
 
-> **Nx Plugin** for **Nuxt.js**.
+> Nx Plugin for Nuxt.js.
 
 Contains builders and schematics for managing Nuxt.js applications and libraries within an Nx workspace. It provides:
 
@@ -22,7 +22,7 @@ yarn add @edbzn/nuxt -D
 Generating a new application with the following:
 
 ```bash
-nx generate @edbzn/nuxt:app <my-app> [options]
+nx generate @edbzn/nuxt:app <my-app> [...options]
 ```
 
 Available options :
@@ -40,7 +40,7 @@ Available options :
 Build a Nuxt.js application.
 
 ```bash
-nx build <my-app> [options]
+nx build <my-app> [...options]
 ```
 
 Available options :
@@ -53,10 +53,18 @@ Available options :
 Build and serve a Nuxt.js application.
 
 ```bash
-nx serve <my-app> [options]
+nx serve <my-app> [...options]
+```
+
+Execute a Nuxt.js application in production.
+
+```bash
+nx serve <my-app> --dev=false [...options]
 ```
 
 Available options :
 
 - **root** `string`
 - **port** `number`
+- **dev** `boolean`
+- **outputPath** `string`
