@@ -20,13 +20,15 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - run: git fetch --no-tags --prune --depth=5 origin master
+
       - name: Install
         run: |
           yarn install --frozen-lockfile
 
       - name: Build
         run: |
-          yarn nx affected:build --prod
+          yarn nx affected:build --prod --base=origin/master
 
   test:
     runs-on: ubuntu-latest
@@ -45,10 +47,12 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - run: git fetch --no-tags --prune --depth=5 origin master
+
       - name: Install
         run: |
           yarn install --frozen-lockfile
 
       - name: Test
         run: |
-          yarn nx affected:test
+          yarn nx affected:test --base=origin/master
