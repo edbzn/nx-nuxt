@@ -29,7 +29,7 @@ export function addProject(options: NormalizedSchema): Rule {
       normalize(options.appProjectRoot),
       join(normalize(options.appProjectRoot), 'tsconfig.json'),
       options.linter,
-      [normalize(options.appProjectRoot) + "/**/*.{js,ts}"]
+      [`${options.appProjectRoot}/**/*.{ts,js,vue}`]
     );
 
     json.projects[options.projectName] = {
