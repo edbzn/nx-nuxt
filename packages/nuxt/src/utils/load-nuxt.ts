@@ -21,19 +21,15 @@ export async function loadNuxt(options: NuxtOptions) {
     configOverrides,
   };
 
-  switch (options.for) {
-    case 'dev':
-      const dev = await load(config);
-      await build(dev);
-      await dev.listen(options.port);
-      break;
-    case 'build':
-      const app = await load(config);
-      await build(app);
-      break;
-    case 'start':
-      const nuxt = await start(config);
-      await nuxt.listen(options.port);
-      break;
+  if (options.for === 'dev') {
+    const app = await load(config);
+    await build(app);
+    await app.listen(options.port);
+  } else if (options.for === 'build') {
+    const app = await load(config);
+    await build(app);
+  } else if (options.for === 'start') {
+    const app = await start(config);
+    await app.listen(options.port);
   }
 }
